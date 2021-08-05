@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  web:
+    build: .
+    working_dir: /var/www/html
+    volumes:
+      - type: bind
+        source: C:\MyGit\dolibarr_claims_api_docker\ # Relative path to the root of your php source code.
+        target: /var/www/html
+      - type: bind
+        source: ./src/logs/httpd
+        target: /var/log/httpd
+      - type: bind
+        source: ./src/logs/php_errors.log
+        target: /var/log/php_errors.log
+  reverse-proxy:
+    image: nginx:latest
+    depends_on: [web]
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - type: bind
+        source: ./src/logs/nginx
+        target: /etc/nginx/logs
+    ports:
+      - 8080:80
+#      - 4343:443

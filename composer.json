@@ -1,0 +1,21 @@
+{
+    "name": "k9barry/dolibarr_claims_api_docker",
+    "description": "A PHP package to create PDF claims using the Dolibarr accounting system API",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "keywords": ["dolibarr", "claims", "php", "api", "docker"],
+    "authors": [
+        {
+            "name": "K9 Barry",
+            "email": "k9barry@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "tecnickcom/tcpdf": "^6.4",
+        "vlucas/phpdotenv": "5.3",
+        "jmleroux/pdf-merger": "*",
+        "monolog/monolog": "2.*"
+    }
+}
